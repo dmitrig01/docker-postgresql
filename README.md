@@ -14,3 +14,6 @@ PostgreSQL for Docker. (Forked from [orchardup/postgresql](https://index.docker.
 
 (Example assumes PostgreSQL client is installed on Docker host.)
 
+NOTE: The template database is created in `UTF8` locale. This is to
+make sure the database will be using UTF8 even if it is being re-created by
+the client.
