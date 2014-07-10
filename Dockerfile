@@ -1,10 +1,10 @@
-FROM stackbrew/ubuntu:14.04
-MAINTAINER Martin Honermeyer "maze@strahlungsfrei.de"
+FROM ubuntu:14.04
+MAINTAINER Dmitri Gaskin "dmitrig01@gmail.com"
 
 RUN locale-gen en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
-RUN apt-get -qq update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q postgresql-9.3 postgresql-contrib-9.3 postgresql-9.3-postgis-2.1 libpq-dev sudo && apt-get clean
+RUN apt-get update && apt-get install -y postgresql-9.3 postgresql-contrib-9.3 postgresql-9.3-postgis-2.1 libpq-dev sudo && apt-get clean
 
 # Remove default database cluster generated on package install (because it uses C locale)
 RUN pg_dropcluster 9.3 main
